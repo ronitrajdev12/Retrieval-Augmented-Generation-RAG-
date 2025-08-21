@@ -1,0 +1,5 @@
+{
+  "name": "Interactive RAG Explainer & Demo",
+  "description": "An educational web application that explains Retrieval-Augmented Generation (RAG) and provides an interactive demonstration of its core components using the Gemini API. Learn about RAG concepts and see a simulated pipeline in action.",
+  "requestFramePermissions": []
+}
