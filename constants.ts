@@ -1,13 +1,16 @@
-
 import { InfoSectionData } from './types';
+// FIX: Corrected import path to resolve module error.
+import { Lightbulb, Cog, Beaker, Briefcase, Scales, ListChecks, Sparkles, Sliders, CheckCircle } from './components/icons';
 
 export const ragInfoSections: InfoSectionData[] = [
   {
     title: "What is RAG?",
+    icon: Lightbulb,
     content: "Retrieval-Augmented Generation (RAG) is a hybrid approach that combines the power of pre-trained LLMs with real-time information retrieval from external sources like vector databases, PDFs, or websites. It enables models to generate more accurate, up-to-date, and context-aware responses.",
   },
   {
     title: "How Does RAG Work?",
+    icon: Cog,
     content: "RAG typically has three components:",
     subsections: [
       { title: "1. User Query", content: "The question from the user." },
@@ -17,6 +20,7 @@ export const ragInfoSections: InfoSectionData[] = [
   },
   {
     title: "Tech Stack (Common Tools Used)",
+    icon: Beaker,
     content: [
       "Embedding Model: OpenAI Embeddings, HuggingFace Transformers",
       "Vector DB: FAISS, Pinecone, Weaviate, Chroma, Qdrant",
@@ -27,6 +31,7 @@ export const ragInfoSections: InfoSectionData[] = [
   },
   {
     title: "Popular Use Cases of RAG",
+    icon: Briefcase,
     content: [
       "Legal Assistants: Query legal documents and case files.",
       "Medical Research: Access up-to-date medical literature and studies.",
@@ -37,6 +42,7 @@ export const ragInfoSections: InfoSectionData[] = [
   },
   {
     title: "Why Use RAG Instead of Fine-Tuning?",
+    icon: Scales,
     content: [
       "Cost: RAG is cheaper than fine-tuning.",
       "Flexibility: Easily update knowledge base without retraining.",
@@ -46,6 +52,7 @@ export const ragInfoSections: InfoSectionData[] = [
   },
   {
     title: "Example: End-to-End RAG Workflow",
+    icon: ListChecks,
     content: [
         "1. User Query: \"Summarize the company's leave policy.\"",
         "2. Embedding: Convert the query into a vector.",
@@ -56,6 +63,7 @@ export const ragInfoSections: InfoSectionData[] = [
   },
   {
     title: "Advanced RAG Features",
+    icon: Sparkles,
     content: [
         "Smart document chunking strategies.",
         "Multi-turn conversation memory.",
@@ -65,6 +73,7 @@ export const ragInfoSections: InfoSectionData[] = [
   },
   {
     title: "Key Considerations for RAG Implementation",
+    icon: Sliders,
     content: [
         "Document Processing: Hierarchical chunking (e.g., 256-token chunks with 15% overlap), metadata preservation (source, section, page).",
         "Enhanced Retrieval: Ensemble retriever (vector + keyword), cross-encoder rerankers, score thresholding (e.g., min 0.65 similarity).",
@@ -74,9 +83,10 @@ export const ragInfoSections: InfoSectionData[] = [
   },
   {
     title: "Final Thoughts",
+    icon: CheckCircle,
     content: "RAG is a foundational pattern for building intelligent, accurate, and grounded LLM-powered systems across domains like healthcare, law, research, and business automation.",
   }
 ];
 
 export const GEMINI_API_KEY = process.env.API_KEY;
-export const GEMINI_MODEL_TEXT = 'gemini-2.5-flash-preview-04-17';
+export const GEMINI_MODEL_TEXT = 'gemini-2.5-flash';

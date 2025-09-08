@@ -1,45 +1,42 @@
-
 import React from 'react';
-import { InteractiveRagDemo } from './components/InteractiveRagDemo';
-import { ApiKeyStatus } from './components/ApiKeyStatus';
 import { ragInfoSections } from './constants';
 import { Section } from './components/Section';
+import InteractiveRagDemo from './components/InteractiveRagDemo';
+import { ApiKeyStatus } from './components/ApiKeyStatus';
+import { ThemeToggle } from './components/ThemeToggle';
+import { useTheme } from './hooks/useTheme';
 
-const App: React.FC = () => {
+function App() {
+  // Initialize theme management
+  useTheme('light');
+
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 p-4 sm:p-6 lg:p-8">
-      <header className="text-center mb-10">
-        <h1 className="text-4xl sm:text-5xl font-bold text-primary-400">
-          Retrieval-Augmented Generation (RAG)
-        </h1>
-        <p className="text-lg text-gray-400 mt-2">
-          Explainer & Interactive Demo
-        </p>
-      </header>
+    <div className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen font-sans">
+      <div className="container mx-auto p-4 md:p-8">
+        <header className="flex justify-between items-center mb-8">
+          <h1 className="text-4xl font-extrabold text-gray-800 dark:text-white tracking-tight">
+            Understanding RAG with Gemini
+          </h1>
+          <ThemeToggle />
+        </header>
 
-      <ApiKeyStatus />
-
-      <main className="max-w-5xl mx-auto space-y-12">
-        <div className="bg-gray-800 shadow-xl rounded-lg p-6">
-          <h2 className="text-3xl font-semibold mb-6 text-primary-300 border-b-2 border-primary-500 pb-2">Learn About RAG</h2>
-          <div className="space-y-6">
-            {ragInfoSections.map((section, index) => (
-              <Section key={index} title={section.title} content={section.content} subsections={section.subsections} defaultOpen={index === 0} />
-            ))}
+        <main className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-3">
+            <ApiKeyStatus />
           </div>
-        </div>
-        
-        <div className="bg-gray-800 shadow-xl rounded-lg p-6">
-          <h2 className="text-3xl font-semibold mb-6 text-primary-300 border-b-2 border-primary-500 pb-2">Interactive RAG Demo</h2>
-          <InteractiveRagDemo />
-        </div>
-      </main>
-
-      <footer className="text-center mt-12 py-6 border-t border-gray-700">
-        <p className="text-gray-500">Built with React, TypeScript, Tailwind CSS, and Gemini API.</p>
-      </footer>
+          <div className="lg:col-span-3">
+            <InteractiveRagDemo />
+          </div>
+          {ragInfoSections.map((section, index) => (
+            <Section key={index} section={section} />
+          ))}
+        </main>
+        <footer className="text-center mt-12 py-4 text-gray-500 dark:text-gray-400">
+          <p>Built with Gemini & React. An interactive guide to Retrieval-Augmented Generation.</p>
+        </footer>
+      </div>
     </div>
   );
-};
+}
 
 export default App;
